@@ -14,11 +14,11 @@ port = 8080
 host = 'localhost'
 
 
-
+error_5 = "Invalid Message Format"
 join_msg = r"JOIN_CHATROOM: ?(.*)\sCLIENT_IP: ?(.*)\sPORT: ?(.*)\sCLIENT_NAME: ?(.*)\s"
 hello_msg = r"HELO ?(.*)"
 
-error_code_5 = "Invalid Message Format"
+
 
 
 
@@ -59,6 +59,11 @@ def process_client_req(connection,address):
             if msg.startswith("JOIN_CHATROOM"):
                 join(connection, msg)
 
+def chat_room(connection, rname , user_name):
+    r_id = str(int(hashlib.md5(chat_room).hexdigest(), 16))
+    user_id = str(int(hashlib.md5(user_name).hexdigest(), 16))
+
+
 def hello():
     elements = regex.match(hello_msg, msg, regex.M)
     if elements is not None:
@@ -66,7 +71,7 @@ def hello():
             address[1]) + "\nStudentID:" + "16343086", connection)
 
     else:
-        error_client(error_code_5, 5, connection)
+        error_client(error_5, 5, connection)
 
 
 
@@ -77,16 +82,12 @@ def join(connection, msg):
             address[1]) + "\nStudentID:" + "16343086", connection)
 
     else:
-        error_client(error_code_5, 5, connection)
+        error_client(error_5, 5, connection)
 
 
 
 
-
-
-
-
-            #Main Function
+#Main Function
 def server_main():
     global  port
     server_s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
