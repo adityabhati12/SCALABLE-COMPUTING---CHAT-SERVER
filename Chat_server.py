@@ -18,7 +18,7 @@ host = 'localhost'
 join_msg = r"JOIN_CHATROOM: ?(.*)\sCLIENT_IP: ?(.*)\sPORT: ?(.*)\sCLIENT_NAME: ?(.*)\s"
 hello_msg = r"HELO ?(.*)"
 
-error_code_5 = "Invalid Message Format... Please write the correct format"
+error_code_5 = "Invalid Message Format"
 
 
 
@@ -63,7 +63,7 @@ def hello():
     elements = regex.match(hello_msg, msg, regex.M)
     if elements is not None:
         msg_client("HELO " + elements.groups()[0] + "\nIP:" + str(address[0]) + "\nPort:" + str(
-            address[1]) + "\nStudentID:" + "17310876", connection)
+            address[1]) + "\nStudentID:" + "16343086", connection)
 
     else:
         error_client(error_code_5, 5, connection)
@@ -74,7 +74,7 @@ def join(connection, msg):
     elements = regex.match(join_msg, msg, regex.M)
     if elements is not None:
         msg_client("HELO " + elements.groups()[0] + "\nIP:" + str(address[0]) + "\nPort:" + str(
-            address[1]) + "\nStudentID:" + "17310876", connection)
+            address[1]) + "\nStudentID:" + "16343086", connection)
 
     else:
         error_client(error_code_5, 5, connection)
@@ -88,20 +88,18 @@ def join(connection, msg):
 
             #Main Function
 def server_main():
+    global  port
     server_s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    host = socket.gethostbyname(socket.gethostname())
+
     print(host, socket.gethostname())
-    server_s.bind((socket.gethostname(), port))
+    server_s.bind((host, port))
     server_s.listen(2)
 
     while True:
         connection , address = server_s.accept()
         print(address)
-        data = connection.recv(1024)
-        print  ("recieved", repr(data))
-        reply = input("Reply : ")
-        print (reply)
-        connection.sendall(reply.encode())
+        ClientThread(clients)
+
 
 
 
