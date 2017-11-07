@@ -6,5 +6,5 @@ Student_id : 16343086
 
 ## Dependencies : 
 ```
-* Python 2.7
+-> Python 2.7
 ```
