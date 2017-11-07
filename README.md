@@ -3,6 +3,7 @@ This project is implementation of a chat server.
 
 > Name : Aditya Bhati<br>
 Student_id : 16343086
+Email: bhatia@tcd.ie
 
 ## Dependencies : 
 ```
@@ -10,6 +11,6 @@ Student_id : 16343086
 ```
 
 ## Run the chat server
-'''
-start.sh [port_num]
+```
+> start.sh [port_num]
 ```
