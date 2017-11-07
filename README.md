@@ -1,7 +1,16 @@
 # SCALABLE-COMPUTING---CHAT-SERVER
 This project is implementation of a chat server.
 
-Name : Aditya Bhati
-Student_id : 16343086
+> Name : Aditya Bhati<br>
+Student_id : 16343086<br>
+Email: bhatia@tcd.ie
 
-Dependencies : Python 2.7
+## Dependencies : 
+```
+-> Python 2.7
+```
+
+## Run the chat server
+```
+> start.sh [port_num]
+```
