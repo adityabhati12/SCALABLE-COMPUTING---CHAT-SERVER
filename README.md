@@ -1,7 +1,7 @@
 # SCALABLE-COMPUTING---CHAT-SERVER
 This project is implementation of a chat server.
 
-Name : Aditya Bhati<br>
+> Name : Aditya Bhati<br>
 Student_id : 16343086
 
 ## Dependencies : 
