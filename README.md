@@ -8,3 +8,8 @@ Student_id : 16343086
 ```
 -> Python 2.7
 ```
+
+## Run the chat server
+'''
+> start.sh [port_num]
+```
