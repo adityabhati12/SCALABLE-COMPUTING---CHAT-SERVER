@@ -257,8 +257,8 @@ class chat_room:
 
 
 
-port = 8080
-host = 'localhost'
+port = 0
+host = ""
 clients = Queue()
 r_array = {}
 
@@ -268,11 +268,24 @@ hello_msg = r"HELO ?(.*)"
 
 #Main Function
 def server_main():
-    global  port
+    global  host, port
+
+    if len(sys.argv) != 2:
+        sys.exit("port number")
+
+    port = int(sys.argv[1])
+
     server_s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+    try:
+        host = socket.gethostbyname(socket.gethostname())
+    except Exception:
+        host = "localhost"
+
     server_s.bind((host, port))
     server_s.listen(2)
+    print ("Server Started")
 
     while True:
         connection , address = server_s.accept()
