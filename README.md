@@ -11,5 +11,5 @@ Student_id : 16343086
 
 ## Run the chat server
 '''
-\> start.sh [port_num]
+>> start.sh [port_num]
 ```
